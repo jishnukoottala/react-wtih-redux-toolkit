@@ -11,3 +11,4 @@
 [React Router Docs](https://reactrouter.com/)
 
 ## Configure redux app store
+[setting up redux toolkit ](https://github.com/reduxjs/redux-toolkit/blob/master/docs/rtk-query/overview.md)
