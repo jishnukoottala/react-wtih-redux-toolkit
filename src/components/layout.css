@@ -1,0 +1,18 @@
+/* .app-shell {
+    display: grid;
+     grid-template-columns: 1fr;
+    grid-template-rows: 60px auto 60px;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    justify-items: stretch;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+.header{
+border-bottom: 1px solid red;
+padding:12px;
+}
+.footer {
+border-top:1px solid red;
+} */
