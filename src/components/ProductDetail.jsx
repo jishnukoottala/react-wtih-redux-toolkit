@@ -5,8 +5,8 @@ import { useGetProductQuery } from '../store/products/productsSlice';
 const ProductDetail = () => {
   const {id}=useParams()
   console.log(id);
-  const { data: productData, error, isLoading } = useGetProductQuery(1);
-  console.log(productData);
+  const { data: productData, error, isLoading } = useGetProductQuery(id);
+  console.log("product data",productData);
   return (
     <Container fluid>
       <Grid>
