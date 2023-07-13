@@ -8,15 +8,21 @@ export const productsApi = createApi({
   }),
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => `products`
+      query: () => {
+        console.log("HIT ONCE and called api");
+        return `products`
+      },
     }),
-    getProduct: builder.query({
-      query: (id) => `products/${id}`
+    getSingleProduct: builder.query({
+      query: (id) => {
+        console.log("HIT ONCE and called api");
+        return `products/${id}`;
+      },
     }),
   }),
 });
 
+console.log(productsApi);
 
-
-export const { useGetProductsQuery, useGetProductQuery } = productsApi;
+export const { useGetProductsQuery, useGetSingleProductQuery } = productsApi;
 
