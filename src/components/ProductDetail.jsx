@@ -4,9 +4,9 @@ import { useParams } from "react-router"
 import { useGetSingleProductQuery } from '../store/products/productsSlice';
 const ProductDetail = () => {
   const {id}=useParams()
-  console.log(id);
+  
   const { data: productData, error, isLoading } = useGetSingleProductQuery(id);
-  console.log("product data",productData);
+  
   return (
     <Container fluid>
       {isLoading && <Box>Loading</Box>}
@@ -16,7 +16,7 @@ const ProductDetail = () => {
           <Image src={productData.image} height={'auto'} width={'80%'} alt="ProductImage" />
         </Grid.Col>
         <Grid.Col span={6}>
-            dsghajdghsgh
+            
             <Title>{productData.title}</Title>
             
             <Text fz="xl">$ {productData.price}</Text>
