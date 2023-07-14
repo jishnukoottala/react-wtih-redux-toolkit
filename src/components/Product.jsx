@@ -1,16 +1,22 @@
 import React from "react";
 import { Grid, Card, Image, Text, Badge, Button, Group } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
-const Product = ({ productImage, title, productDescription }) => {
+const Product = ({ id, productImage, title, productDescription }) => {
+  const navigate=useNavigate()
   return (
     <Grid.Col span={4}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section>
-          <Image src={productImage} height={160} alt="ProductImage" />
+        <Card.Section className="productImage" onClick={()=>navigate(`/product/${id}`)}>
+          <Image src={productImage} height={'400px'} width={'300px'} alt="ProductImage" />
         </Card.Section>
 
         <Group position="apart" mt="md" mb="xs">
-          <Text weight={500}>{title}</Text>
+          <Text weight={500}  sx={{
+            textOverflow: "ellipsis",
+            width:'270px',
+            height:'100px'
+          }}>{title}</Text>
           <Badge color="pink" variant="light">
             On Sale
           </Badge>

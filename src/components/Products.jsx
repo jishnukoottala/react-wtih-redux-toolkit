@@ -29,6 +29,7 @@ const Products = () => {
           {productsData?.map((product) => (
             <Product
               key={product.id}
+              id={product.id}
               productImage={product.image}
               productDescription={product.description}
               title={product.title}
