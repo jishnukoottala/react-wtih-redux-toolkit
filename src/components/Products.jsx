@@ -10,12 +10,11 @@ import {
 const Products = () => {
   const [searchValue, onSearchChange] = useState("");
   const [products, setProducts] = useState([]);
-  
 
   const {
     data: categoryData = [],
-    error: errorCategory=false,
-    isLoading: isLoadingCategory=true,
+    error: errorCategory = false,
+    isLoading: isLoadingCategory = true,
   } = useGetProductsCategoryQuery();
 
   const { data: productsData, error, isLoading } = useGetProductsQuery();
@@ -28,23 +27,20 @@ const Products = () => {
     getProductCategory,
     {
       data: categoryProduct = [],
-      error: errorProductCategory=false,
-      isLoading: isLoadingProductCategory=false,
+      error: errorProductCategory = false,
+      isLoading: isLoadingProductCategory = false,
     },
-  ] = useLazyGetProductByCategoryQuery("electronics");
+  ] = useLazyGetProductByCategoryQuery();
 
-  
-useEffect(()=>{
-  if(categoryProduct!==[]&&searchValue!==""){
-    setProducts(categoryProduct)
-  }
-},[categoryProduct])
+  useEffect(() => {
+    if (categoryProduct !== [] && searchValue !== "") {
+      setProducts(categoryProduct);
+    }
+  }, [categoryProduct]);
 
-useEffect(()=>{
-  getProductCategory();
-},[])
-    
-  
+  useEffect(() => {
+    getProductCategory(searchValue);
+  }, [searchValue]);
 
   return (
     <Container fluid>
@@ -55,16 +51,12 @@ useEffect(()=>{
             label="Choose a Category..."
             placeholder="Pick one"
             searchable
-            onChange={(e)=>{
+            onChange={(e) => {
               onSearchChange(e);
-              
-              
-
             }}
             searchValue={searchValue}
             nothingFound="No options"
             data={categoryData}
-            
           />
         </Box>
       )}
