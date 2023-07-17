@@ -7,7 +7,7 @@ const Product = ({ id, productImage, title, productDescription }) => {
   return (
     <Grid.Col span={4}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section className="productImage" onClick={()=>navigate(`/product/${id}`)}>
+        <Card.Section className="productImage cursorPointer" onClick={()=>navigate(`/product/${id}`)}>
           <Image src={productImage} height={'400px'} width={'300px'} alt="ProductImage" />
         </Card.Section>
 
@@ -15,7 +15,8 @@ const Product = ({ id, productImage, title, productDescription }) => {
           <Text weight={500}  sx={{
             textOverflow: "ellipsis",
             width:'270px',
-            height:'100px'
+            height:'100px',
+            cursor:"pointer"
           }}>{title}</Text>
           <Badge color="pink" variant="light">
             On Sale
@@ -33,12 +34,13 @@ const Product = ({ id, productImage, title, productDescription }) => {
             WebkitLineClamp: "2",
             lineClamp: "2",
             WebkitBoxOrient: "vertical",
+
           }}
         >
           {productDescription}
         </Text>
 
-        <Button variant="light" color="blue" fullWidth mt="md" radius="md">
+        <Button variant="light" color="blue" fullWidth mt="md" radius="md" className="cursorPointer">
           Add to Cart
         </Button>
       </Card>
